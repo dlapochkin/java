@@ -1,5 +1,9 @@
 import java.util.List;
 
+/*
+ * Класс, реализующий телефонный справочник для записи номеров телефонов.
+ * List<Record> records - список с номерами телефонов.
+ */
 class PhoneBook {
     private List<Record> records;
 
@@ -7,10 +11,16 @@ class PhoneBook {
         this.records = records;
     }
 
+    /*
+     * Метод возвращает список из всех записей справочника.
+     */
     public List<Record> getAllRecords() {
         return this.records;
     }
 
+    /*
+     * Метод сохраняет в справочнике новую запись.
+     */
     public void createRecord(Record record) throws PhoneNumberAlreadyExists {
         if(this.searchById(record.getId()) == null && this.searchByPhoneNumber(record.getPhoneNumber()) == null) {
             this.records.add(record);
@@ -20,6 +30,9 @@ class PhoneBook {
         }
     }
 
+    /*
+     * Метод удаляет запись из справочника по идентификатору.
+     */
     public void deleteRecord(long id) throws RecordNotFound {
         if(this.searchById(id) != null) {
             this.records.remove(this.searchById(id));
@@ -29,6 +42,9 @@ class PhoneBook {
         }
     }
 
+    /*
+     * Метод обновляет запись в справочнике.
+     */
     public void updateRecord(Record record) throws RecordNotFound, RecordNotValid {
         Record search = this.searchById(record.getId());
         if(search != null) {
@@ -45,10 +61,16 @@ class PhoneBook {
         }
     }
 
+    /*
+     * Метод осуществляет поиск нужной записи по id.
+     */
     public Record searchById(long id) {
             return this.records.stream().filter(rec -> rec.getId() == id).findFirst().orElse(null);
     }
 
+    /*
+     * Метод осуществляет поиск нужной записи по номеру телефона.
+     */
     public Record searchByPhoneNumber(String phoneNumber) {
         return this.records.stream().filter(rec -> rec.getPhoneNumber() == phoneNumber).findFirst().orElse(null);
     } 

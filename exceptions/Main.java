@@ -1,9 +1,21 @@
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+
+/*
+ * Класс Main, тело работы программы.
+ */
 public class Main {
-    
+
+    /*
+     * Функция демонстрирует пример работы с исключениями.
+     */
     public static void main(String[] args) throws PhoneNumberAlreadyExists, RecordNotValid {
+
+        /*
+         * Для демонстрации работы программы были использованы пустые catch(...) {} (демонстрация исключений).
+         */
+
         // (1)
         System.out.println("(1)");
         PhoneBook book = new PhoneBook(new ArrayList<Record>());

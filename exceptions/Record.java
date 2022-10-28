@@ -1,3 +1,9 @@
+/*
+ * Класс, являющийся реализацией записи в справочнике телефонных номеров.
+ * long id - id.
+ * String phoneNumber - номер телефона.
+ * String name - ФИО.
+ */
 class Record {
     private long id;
     private String phoneNumber;
